@@ -1,0 +1,18 @@
+x = int(input("Enter capacity of first jug: "))
+y = int(input("Enter capacity of second jug: "))
+z = int(input("Enter target amount: "))
+def solve(x, y, z):
+	if x > y:
+		x, y = y, x
+	while x != z and y != z:
+		if x < y:
+			x, y = y, x - y
+		else:
+			y = x - y
+		if x == z or y == z:
+			return x, y
+	print("No solution found!")
+	return None
+solution = solve(x, y, z)
+if solution:
+	print(solution)
